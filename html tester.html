@@ -81,6 +81,13 @@
 				background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
 				text-decoration: none;
 			}
+			#update{
+				float: right;
+			}
+			#titleTab label{
+				float: right;
+				margin-right: 10px;
+			}
 		</style>
 		
 		<script type="text/javascript">
@@ -106,6 +113,12 @@
 				document.getElementById("save").href = pagina;
 			}
 			
+			function updateView()
+			{
+				if(document.getElementById("update").checked)
+					writePage();
+			}
+			
 			function digitar(evento, objeto)
 			{
 				var keyCode = evento.keyCode || evento.which;
@@ -119,13 +132,22 @@
 					objeto.selectionStart = objeto.selectionEnd = comeco + 1;
 					objeto.focus();
 				}
-				writePage();
+				updateView();
+			}
+			
+			function update(evento)
+			{
+				var keyCode = evento.keyCode || evento.which;
+				if (keyCode == 116) {
+					evento.preventDefault();
+					writePage();
+				}
 			}
 		</script>
 		
 	</head>
 	
-	<body onload="writePage();">
+	<body onload="writePage();" onkeydown="update(event)">
 		<table id="teste">
 			<tr id="titleTab">
 				<td colspan="2">
@@ -134,12 +156,14 @@
 						Desenvolvido por Giovanni Perillo. 2015.
 						<a href id="save" download>Salvar...</a>
 						<a href id="link" target="_blank">Abrir em nova guia</a>
+						<label>Atualizar automaticamente</label>
+						<input id="update" type="checkbox" checked />
 					</div>
 				</td>
 			</tr>
 			<tr id="cssTab">
 				<td colspan="2">
-					<textarea id="css" onkeydown="digitar(event,this);" onkeyup="writePage();" onchange="writePage();" >/*Aqui você digita o CSS*/
+					<textarea id="css" onkeydown="digitar(event,this);" onkeyup="updateView();" onchange="updateView();" >/*Aqui você digita o CSS*/
 body{
 	background: blue;
 	color: white;
@@ -149,7 +173,7 @@ body{
 			
 			<tr id="htmlTab">
 				<td>
-					<textarea id="html" onkeydown="digitar(event,this);" onkeyup="writePage();" onchange="writePage();" ><!--Aqui você escreve o html.-->
+					<textarea id="html" onkeydown="digitar(event,this);" onkeyup="updateView();" onchange="updateView();" ><!--Aqui você escreve o html.-->
 <html>
 	<head>
 		<script type="text/javascript">
