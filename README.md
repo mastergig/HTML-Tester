@@ -11,7 +11,7 @@ And you can save the result by clicking into the button "Salvar como..."
 ```
 >(The save button works with html5. If you don't have html5, try right click on the button and "Save as..." option)
 
-## Update notes:
+## Update notes
 ```
 1. First version
   1. Created the first version.
