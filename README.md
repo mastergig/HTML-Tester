@@ -1,5 +1,5 @@
 # HTML-Tester
-A code made to test HTML, CSS and JavaScript in real time.
+##A code made to test HTML, CSS and JavaScript in real time.
 >p.s.: May not work correctly in Internet Explorer.
 
 The layout is simple:
@@ -13,16 +13,11 @@ You can open the result into a new page by clicking into the button "Abrir em no
 And you can save the result by clicking into the button "Salvar como..."
 >(The save button works with html5. If you don't have html5, try right click on the button and "Save as..." option)
 
-# Update notes:
-
->First version
-
-Created the first version.
-
->Auto update enable/disable option
-
-Included into the code the option to auto update.
-
->F5 Disabled
-
-The F5 key will now only update the frame, but still have problems when the focus of the page is into the frame.
+## Update notes:
+```
+1. First version
+  1. Created the first version.
+2. First Updates
+  1. Included into the code the option to auto update.
+  2. The F5 key will now only update the frame, but still have problems when the focus of the page is into the frame.
+```
