@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta name="author" content="Giovanni Perillo">
-		<meta name="description" content="Testador dinâmico de HTML/CSS">
+		<meta name="description" content="Testador din&#226;mico de HTML/CSS">
 		<meta name="keywords" content="HTML,CSS,JavaScript">
 		<title>&rArr;Testador HTML &#9829;&#9830;&#9824;&#9827;</title>
 		<style type="text/css">
@@ -53,7 +53,7 @@
 				font-variant: small-caps;
 				padding-left: 23px;
 			}
-			a{
+			.btn{
 				margin: 0 25px 0 0 ;
 				background: #3498db;
 				background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
@@ -72,7 +72,7 @@
 				border: 1px solid #fff;
 				float: right;
 			}
-			a:hover{
+			.btn:hover{
 				background: #3cb0fd;
 				background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
 				background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
@@ -80,6 +80,9 @@
 				background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
 				background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
 				text-decoration: none;
+			}
+			a{
+				color: white;
 			}
 			#update{
 				float: right;
@@ -132,6 +135,9 @@
 					objeto.selectionStart = objeto.selectionEnd = comeco + 1;
 					objeto.focus();
 				}
+				if (keyCode == 116) {
+					evento.preventDefault();
+				}
 				updateView();
 			}
 			
@@ -153,12 +159,11 @@
 				<td colspan="2">
 					<h2>Testador HTML</h2>
 					<div style="padding-left: 40px;">
-						Desenvolvido por Giovanni Perillo. 2015.
-						<a href id="save" download>Salvar...</a>
-						<a href id="link" target="_blank">Abrir em nova guia</a>
+						Desenvolvido por <a href="https://github.com/mastergig/HTML-Tester.git">Giovanni Perillo</a>. 2015.
+						<a href id="save" class="btn" download>Salvar...</a>
+						<a href id="link" class="btn" target="_blank">Abrir em nova guia</a>
 						<label>Atualizar automaticamente</label>
-						<input id="update" type="checkbox" checked />
-					</div>
+						<input id="update" type="checkbox" checked />					</div>
 				</td>
 			</tr>
 			<tr id="cssTab">
