@@ -26,5 +26,5 @@ And you can save the result by clicking into the button "Salvar como..."
 - Create an English version of the html code (actually it's written in Brazilian Portuguese).
 - Include a save option of a re-editable format.
 - Include a load option for the re-editable file.
-- Include a option to write JavaScript 
+- Include a option to write JavaScript separately
 ```
