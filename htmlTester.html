@@ -41,7 +41,7 @@
 				startCode += tab(4) + "margin: 0;\n"
 				startCode += tab(4) + "padding: 0;\n"
 				startCode += tab(4) + "width: 100%;\n"
-				startCode += tab(4) + "height: 100%\n"
+				startCode += tab(4) + "height: 100%;\n"
 				startCode += tab(3) + "}\n"
 				startCode += tab(2) + "</style>\n"
 				startCode += tab(1) + "</head>\n"+ tab(1) + "\n"
@@ -145,7 +145,7 @@
 			
 			function abrirArquivo()
 			{
-				if(window.Fiel && window.FileReader && window.FileList && window.Blob)
+				if(window.File && window.FileReader && window.FileList && window.Blob)
 				{
 					var arquivo = file.files[0].slice();
 					var leitor = new window.FileReader();
