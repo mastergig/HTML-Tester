@@ -1,0 +1,29 @@
+<!--Escreva o HTML aqui-->
+<html>
+	<head>
+		<style type='text/css'>
+			body,html{
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+			}
+		</style><script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script type='text/javascript'>
+			//alert('hello world');
+			var url_do_post = "http://127.0.0.1:3717/Identifier";
+				$.ajax({
+					type: "GET",
+					url: url_do_post,
+					success: function (data)
+					{
+						console.log(data);
+					}
+				});
+		</script>
+	</head>
+	
+	<body>
+		Console
+	</body>
+</html>
