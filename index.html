@@ -1,119 +1,209 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <!-- Custom PreHead code is injected here -->
-    
-
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta charset="utf-8"/>
-
-        <!-- Builtin injector for disabling cache -->
-        <meta http-equiv="pragma" content="no-cache"/>
-
-        <!-- Set the title bar of the page -->
-        <title>Dental Madness</title>
-
-        <!-- Custom PreStyle code is injected here -->
-        
-
-        <!-- Set the background colour of the document -->
-        <style>
-            body {
-                background: #0;
-                color: #cccccc;
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
-            }
-
-            canvas {
-                image-rendering: optimizeSpeed;
-                -webkit-interpolation-mode: nearest-neighbor;
-                -ms-touch-action: none;
-                touch-action: none;
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
-            }
-            :-webkit-full-screen #canvas {
-                width: 100%;
-                height: 100%;
-            }
-            :-webkit-full-screen {
-                width: 100%;
-                height: 100%;
-            }
-            
-            /* Custom Runner Styles */
-            div.gm4html5_div_class {
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
-            }
-            div.gm4html5_login {
-                padding: 20px;
-                position: absolute;
-                border: solid 2px #000000;
-                background-color: #404040;
-                color:#00ff00;
-                border-radius: 15px;
-                box-shadow: #101010 20px 20px 40px;
-            }
-            div.gm4html5_cancel_button {
-                float: right;
-            }
-            div.gm4html5_login_button {
-                float: left;
-            }
-            div.gm4html5_login_header {
-                text-align: center;
-            }
-            /* END - Custom Runner Styles */
-            
-        </style>
-
-        <!-- Custom PostStyle code is injected here -->
-        
-
-        <!-- Builtin injector for injecting flurry analytics code -->
-        
-    </head>
-
-    <!-- Custom PostHead code is injected here -->
-    
-
-    <!-- Custom PreBody code is injected here -->
-    
-
-    <body>
-        <div class="gm4html5_div_class" id="gm4html5_div_id">
-            
-            <!-- Builtin injector for splash screen -->
-            
-
-            <!-- Create the canvas element the game draws to -->
-            <canvas id="canvas" width="640" height="480" >
-                <p>Your browser doesn't support HTML5 canvas.</p>
-            </canvas>
-        </div>
-
-        <!-- Run the game code -->
-        <script type="text/javascript" src="html5game/GGJ2024.js?cachebust=1248644784"></script>
-
-        <!-- Builtin injector for injecting runner path -->
-        
-
-        <script>window.onload = GameMaker_Init;</script>
-
-        <!-- Builtin injector for injecting google analytics code -->
-        
-
-    </body>
-
-    <!-- Custom PostBody code is injected here -->
-    
-</html>
+<html>
+	<head>
+		<meta name="author" content="Giovanni Perillo" />
+		<meta name="description" content="Testador din&#226;mico de HTML" />
+		<meta name="keywords" content="HTML,CSS,JavaScript" />
+		<title>Testador HTML</title>
+		<style type="text/css">
+			body,html,*{
+				font-family: tahoma;
+				margin: 0;
+				padding: 0;
+			}
+			body,html,#html,#teste,#page{
+				width: 100%;
+				height: 100%;
+			}
+			#html{
+				resize: none;
+				background: transparent;
+			}
+			#titleTab{
+				height: 150px;
+			}
+			#footTab{
+				height: 18px;
+				font-size: 10px;
+				font-size: bold;
+				text-align: right;
+			}
+		</style>
+		<script type="text/javascript">
+			function startPage()
+			{	
+				var vHTML = document.getElementById("html");
+				var startCode = "<!--Escreva o HTML aqui-->\n";
+				
+				startCode += "<html>\n"
+				startCode += tab(1) + "<head>\n"
+				startCode += tab(2) + "<style type='text/css'>\n"
+				startCode += tab(3) + "body,html{\n"
+				startCode += tab(4) + "margin: 0;\n"
+				startCode += tab(4) + "padding: 0;\n"
+				startCode += tab(4) + "width: 100%;\n"
+				startCode += tab(4) + "height: 100%;\n"
+				startCode += tab(3) + "}\n"
+				startCode += tab(2) + "</style>\n"
+				startCode += tab(2) + "<script type='text/javascript'>\n"
+				startCode += tab(3) + "//alert('hello world');\n";
+				startCode += tab(2) + "</"+"script>\n"
+				startCode += tab(1) + "</head>\n"+ tab(1) + "\n"
+				startCode += tab(1) + "<body>\n"
+				startCode += tab(2) + "Texto de Exemplo\n"
+				startCode += tab(1) + "</body>\n"
+				startCode += "</html>"
+				
+				vHTML.value = startCode;
+				
+				writePage();
+			}
+			
+			function updatePage()
+			{
+				var vUpdate = document.getElementById("update");
+				
+				if(vUpdate.checked)
+				{
+					writePage();
+				}
+			}
+			
+			function writePage()
+			{
+				var vPage = document.getElementById("page");
+				var vSave = document.getElementById("save");
+				var vOpen = document.getElementById("open");
+				
+				var url = stringURL();
+				
+				vPage.src = url;
+				vSave.href = url;
+				vOpen.href = url;
+			}
+			
+			function digitar(evento, objeto)
+			{
+				var keyCode = evento.keyCode || evento.which;
+				
+				if(keyCode == 9)
+				{
+					event.preventDefault();
+					var comeco = objeto.selectionStart;
+					var fim =  objeto.selectionEnd;
+					
+					objeto.value = objeto.value.substring(0, comeco) + "\t" + objeto.value.substring(fim);
+					
+					objeto.selectionStart = objeto.selectionEnd = comeco + 1;
+					objeto.focus();
+				}
+				if(keyCode == 13)
+				{
+					event.preventDefault();
+					var comeco = objeto.selectionStart;
+					var fim =  objeto.selectionEnd;
+					var quebra = "\n";
+					
+					var txtComeco = objeto.value.substring(0, comeco);
+					var txtFim = objeto.value.substring(fim);
+					
+					var txtSplit = txtComeco.split(quebra);
+					var txtUltimaLinha = txtSplit[txtSplit.length-1];
+					var nTabs = 0;
+					var index = 0;
+					
+					while( txtUltimaLinha.charAt(index++) == "\t" )
+					{
+						nTabs++;
+					}
+					objeto.value = txtComeco + "\n" + tab(nTabs) + txtFim;
+					
+					objeto.selectionStart = objeto.selectionEnd = comeco + nTabs + 1;
+					objeto.focus();
+				}
+				if(keyCode == 116)
+				{
+					event.preventDefault();
+					writePage();
+				}
+			}
+			
+			function stringURL(html)
+			{
+				var url = "data:text/html;charset=ISO-8859-1,";
+				var vHTML = document.getElementById("html");
+				
+				if(!html)
+				{
+					html = vHTML.value;
+				}
+				else
+				{
+					vHTML.value = html;
+				}
+				
+				url += escape(html);
+				
+				return url;
+			}
+			
+			function abrirArquivo()
+			{
+				if(window.File && window.FileReader && window.FileList && window.Blob)
+				{
+					var arquivo = file.files[0].slice();
+					var leitor = new window.FileReader();
+					
+					leitor.readAsBinaryString(arquivo);
+					leitor.onloadend = function(){
+						stringURL(leitor.result);
+						writePage();
+					}
+				}
+				else
+				{
+					alert("O seu navegador nÃ£o possui suporte Ã  API de arquivos.")
+				}
+			}
+			
+			function tab(num)
+			{
+				var i;
+				var tab = "";
+				for(i=0; i < num; i++)
+				{
+					tab += "\t";
+				}
+				return tab;
+			}
+		</script>
+	</head>
+	
+	<body onload="startPage();">
+		<table id="teste">
+			<tr id="titleTab">
+				<td colspan="2">
+					Testador HTML<br/>
+					<a href="#" ID="updt" class="btn" onclick="writePage();">Atualizar</a>
+					<a href="#" ID="save" class="btn" download>Salvar...</a>
+					<a href="#" ID="open" class="btn" target="_blank">Abrir em nova guia</a>
+					<a href="#" ID="edit" class="btn" onclick="file.click();">Abrir Arquivo...</a>
+					<input id="update" type="checkbox" checked />
+					<label>Atualizar automaticamente</label>
+					<input id="file" type="file" style="display: none;" onchange="abrirArquivo();" />
+				</td>
+			</tr>
+			<tr id="htmltab">
+				<td>
+					<textarea id="html" onkeydown="digitar(event,this);" onkeyup="updatePage();" onchange="updatePage();"></textarea>
+				</td>
+				<td>
+					<iframe id="page" frameborder="0"></iframe>
+				</td>
+			</tr>
+			<tr id="footTab">
+				<td colspan="2">
+					Desenv. por <a href="https://github.com/mastergig">Giovanni Perillo</a>. Protegido por direitos de Copyright, Creative Commons. 2015.
+				</td>
+			</tr>
+		</table>
+	</body>
